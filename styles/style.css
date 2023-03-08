@@ -1,0 +1,91 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Karla";
+}
+
+.centralization {
+  width: 100%;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+.container-background {
+  background: linear-gradient(180deg, #f5db13 0%, #f2b807 100%);
+  width: 100%;
+  height: 100%;
+  box-shadow: rgba(0, 0, 0, 0.18) 0px 10px 10px;
+}
+
+.menu {
+  padding: 10px;
+}
+.menu nav {
+  display: flex;
+  justify-content: space-between;
+}
+.menu nav a img {
+  margin-right: 10px;
+}
+.menu ul {
+  width: 800px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.menu ul li {
+  list-style-type: none;
+}
+.menu ul li a {
+  text-decoration: none;
+  color: black;
+  font-size: 25px;
+}
+.menu ul li:hover {
+  transition: 0.2s;
+  border-bottom: solid 2px black;
+  height: 35px;
+}
+
+.menu-mobile {
+  display: none;
+  padding: 10px;
+}
+.menu-mobile nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.menu-mobile hr {
+  width: 20px;
+  height: 5px;
+  background-color: black;
+  border: 0;
+  margin: 2px;
+}
+.menu-mobile button {
+  background-color: transparent;
+  border: 0;
+}
+.menu-mobile button:focus hr {
+  transform: rotate(45deg);
+  transition: 0.2s;
+}
+.menu-mobile button:focus hr:nth-child(2) {
+  display: none;
+}
+.menu-mobile button:focus hr:nth-child(3) {
+  transform: rotate(-45deg);
+  position: relative;
+  top: -7px;
+}
+
+@media screen and (max-width: 750px) {
+  .menu {
+    display: none;
+  }
+  .menu-mobile {
+    display: block;
+  }
+}/*# sourceMappingURL=style.css.map */
