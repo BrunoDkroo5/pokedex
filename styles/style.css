@@ -1,8 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   font-family: "Karla";
 }
 
@@ -13,16 +12,13 @@
 }
 
 .container-background {
-  background: -webkit-gradient(linear, left top, left bottom, from(#f5db13), to(#f2b807));
   background: linear-gradient(180deg, #f5db13 0%, #f2b807 100%);
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 10px 30px -10px;
+  display: inline-block;
   width: 100%;
-  height: 100%;
-  -webkit-box-shadow: rgba(0, 0, 0, 0.18) 0px 10px 10px;
-          box-shadow: rgba(0, 0, 0, 0.18) 0px 10px 10px;
 }
 
 .background-main {
-  background: -webkit-gradient(linear, left top, left bottom, from(#f5db13), to(#f2b807));
   background: linear-gradient(180deg, #f5db13 0%, #f2b807 100%);
   width: 100%;
   height: auto;
@@ -31,45 +27,28 @@
 .menu {
   padding: 10px;
 }
-
 .menu nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
-
 .menu nav a img {
   margin-right: 10px;
 }
-
 .menu ul {
   width: 800px;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
 }
-
 .menu ul li {
   list-style-type: none;
 }
-
 .menu ul li a {
   text-decoration: none;
   color: black;
   font-size: 25px;
 }
-
 .menu ul li:hover {
-  -webkit-transition: 0.2s;
   transition: 0.2s;
   border-bottom: solid 2px black;
   height: 35px;
@@ -79,19 +58,11 @@
   display: none;
   padding: 10px;
 }
-
 .menu-mobile nav {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  align-items: center;
+  justify-content: space-between;
 }
-
 .menu-mobile hr {
   width: 20px;
   height: 5px;
@@ -99,40 +70,27 @@
   border: 0;
   margin: 2px;
 }
-
 .menu-mobile button {
   background-color: transparent;
   border: 0;
 }
-
 .menu-mobile button:focus hr {
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-  -webkit-transition: 0.2s;
+  transform: rotate(45deg);
   transition: 0.2s;
 }
-
 .menu-mobile button:focus hr:nth-child(2) {
   display: none;
 }
-
 .menu-mobile button:focus hr:nth-child(3) {
-  -webkit-transform: rotate(-45deg);
-          transform: rotate(-45deg);
+  transform: rotate(-45deg);
   position: relative;
   top: -7px;
 }
 
 .container-main {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .call-to-action-main h1 {
@@ -142,7 +100,6 @@
   letter-spacing: 4px;
   color: #000000;
 }
-
 .call-to-action-main p {
   margin-top: 64px;
   font-weight: 400;
@@ -150,15 +107,13 @@
   line-height: 37px;
   color: #000000;
 }
-
 .call-to-action-main button {
   width: 231px;
   height: 66px;
   margin-top: 64px;
   border-radius: 11px;
   background: #73d677;
-  -webkit-box-shadow: inset 0px -9px 0px rgba(0, 0, 0, 0.18);
-          box-shadow: inset 0px -9px 0px rgba(0, 0, 0, 0.18);
+  box-shadow: inset 0px -9px 0px rgba(0, 0, 0, 0.18);
   font-weight: 700;
   font-size: 23px;
   line-height: 27px;
@@ -167,18 +122,13 @@
 
 .image-call-to-action-main img {
   position: relative;
-  right: -85px;
+  right: -109px;
 }
 
 .info-bottom {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
+  justify-content: space-between;
 }
-
 .info-bottom p {
   margin-bottom: 15px;
 }
@@ -190,5 +140,4 @@
   .menu-mobile {
     display: block;
   }
-}
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

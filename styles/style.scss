@@ -11,9 +11,9 @@
 }
 .container-background {
   background: linear-gradient(180deg, #f5db13 0%, #f2b807 100%);
+  box-shadow: rgba(0, 0, 0, 0.45) 0px 10px 30px -10px;
+ display: inline-block;
   width: 100%;
-  height: 100%;
-  box-shadow: rgba(0, 0, 0, 0.18) 0px 10px 10px;
 }
 .background-main {
   background: linear-gradient(180deg, #f5db13 0%, #f2b807 100%);
@@ -23,6 +23,7 @@
 .menu {
   padding: 10px;
   nav {
+   
     display: flex;
     justify-content: space-between;
     a {
@@ -126,7 +127,7 @@
 .image-call-to-action-main{
   img{
     position: relative;
-    right: -85px;
+    right: -109px;
   }
 }
 .info-bottom{
