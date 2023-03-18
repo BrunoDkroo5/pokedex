@@ -48,39 +48,137 @@
         </div>
         <div class="selects">
           <div class="select-type">
-            <select name="TIPO">
-              <option disabled selected>TIPO</option>
-              <option value="Normal">Normal</option>
-              <option value="Eletric">Eletric</option>
-              <option value="Water">Water</option>
-              <option value="fire">fire</option>
-            </select>
+            <button id="btnType" class="btn-option">
+              <p>
+                TIPO
+                <img
+                  src="images/icons/caret-down.svg"
+                  alt="icone seta para baixo"
+                />
+              </p>
+
+            </button>
+            <div class="options">
+              <ul>
+                <li>
+                  <a href="#"><span>☑</span>☐ Eletric</a>
+                </li>
+                <li>
+                  <a href="#"><span>☑</span>☐ Eletric</a>
+                </li>
+                <li>
+                  <a href="#"><span>☑</span>☐ Eletric</a>
+                </li>
+                <li>
+                  <a href="#"><span>☑</span>☐ Eletric</a>
+                </li>
+              </ul>
+            </div>
           </div>
           <div class="select-type">
-            <select name="ATAQUE">
-              <option disabled selected>ATAQUE</option>
-              <option value="Normal">Normal</option>
-              <option value="Eletric">Eletric</option>
-              <option value="Water">Water</option>
-              <option value="fire">fire</option>
-            </select>
+            <button id="btnAttack" class="btn-option">
+              <p>
+                ATAQUE
+                <img
+                  src="images/icons/caret-down.svg"
+                  alt="icone seta para baixo"
+                />
+              </p>
+              <div class="options">
+                <ul>
+                  <li>☑ water</li>
+                  <li>☑ Eletric</li>
+                  <li>☑ asdasd</li>
+                  <li>☑ fire</li>
+                </ul>
+              </div>
+            </button>
           </div>
           <div class="select-type">
-            <select name="TIPO">
-              <option disabled selected>EXPERIÊNCIA</option>
-              <option value="Normal">☐ Normal</option>
-              <option value="Eletric">☑ Eletric</option>
-              <option value="Water">☐ Water</option>
-              <option value="fire">☐ fire</option>
-            </select>
+            <button id="btnExperience" class="btn-option">
+              <p>
+                EXPERIÊNCIA
+                <img
+                  src="images/icons/caret-down.svg"
+                  alt="icone seta para baixo"
+                />
+              </p>
+              <div class="options">
+                <ul>
+                  <li>☑ water</li>
+                  <li>☑ Eletric</li>
+                  <li>☑ asdasd</li>
+                  <li>☑ fire</li>
+                </ul>
+              </div>
+            </button>
           </div>
-        </div>
-        <div class="info-bottom">
-          <p>Make with ❤️ for the PokéSpartans team Platzi Master</p>
-          <p>Ours Team</p>
         </div>
       </div>
     </main>
-    <footer></footer>
+    <footer>
+      <div class="info-bottom centralization">
+        <p>Make with ❤️ for the PokéSpartans team Platzi Master</p>
+        <p>Ours Team</p>
+      </div>
+    </footer>
+
+    <script type="text/javascript">
+      const buttonOption = document.getElementById("btn-options");
+      const allOptions = document.getElementsByClassName("options");
+
+      /* Categorias */
+      const buttonTipo = document.getElementById("btnType");
+      const buttonAttack = document.getElementById("btnAttack");
+      const buttonExperience = document.getElementById("btnExperience");
+
+      let ObjectCategoryType = {
+        nameOfCategory: "Tipo",
+        option: allOptions[0],
+      };
+
+      let ObjectCategoryAttack = {
+        nameOfCategory: "Ataque",
+        option: allOptions[1],
+      };
+
+      let ObjectCategoryExperience = {
+        nameOfCategory: "Experience",
+        option: allOptions[2],
+      };
+
+      function toggleBooFunc(_boo_) {
+        return _boo_ ? "block" : "none";
+      }
+
+      function TypeCategory() {
+        let toggleBoo = false;
+
+        return buttonTipo.addEventListener("click", () => {
+          toggleBoo = !toggleBoo;
+          ObjectCategoryType.option.style.display = toggleBooFunc(toggleBoo);
+        });
+      }
+      TypeCategory();
+
+      function AttackCategory() {
+        let toggleBoo = false;
+        return buttonAttack.addEventListener("click", () => {
+          toggleBoo = !toggleBoo;
+          ObjectCategoryAttack.option.style.display = toggleBooFunc(toggleBoo);
+        });
+      }
+      AttackCategory();
+
+      function ExperienceCategory() {
+        let toggleBoo = false;
+        return buttonExperience.addEventListener("click", () => {
+          toggleBoo = !toggleBoo;
+          ObjectCategoryExperience.option.style.display =
+            toggleBooFunc(toggleBoo);
+        });
+      }
+      ExperienceCategory();
+    </script>
   </body>
 </html>
