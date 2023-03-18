@@ -5,6 +5,14 @@
   font-family: "Karla";
 }
 
+@keyframes check-after {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 .centralization {
   width: 100%;
   max-width: 1300px;
@@ -152,7 +160,7 @@
   height: 53px;
   border-radius: 30px;
   border: 0;
-  background-color: #F2F2F2;
+  background-color: #f2f2f2;
   padding-left: 20px;
   font-size: 16px;
   box-shadow: 4px 4px 16px rgba(1, 28, 64, 0.2);
@@ -171,8 +179,60 @@
   left: 120px;
 }
 
-.select-type select {
-  width: 130px;
+.btn-option {
+  width: 135px;
+  height: 21px;
+  align-items: center;
+  padding: 0 4px 0 4px;
+  background-color: #f2f2f2;
+  border-radius: 8px;
+  border: 0;
+  box-shadow: 4px 4px 16px rgba(1, 28, 64, 0.2);
+  cursor: pointer;
+}
+.btn-option p {
+  text-align: center;
+}
+.btn-option p img {
+  width: 13px;
+  position: relative;
+  left: 15px;
+  top: 3px;
+}
+.btn-option li {
+  list-style-type: none;
+  text-align: start;
+}
+
+.options-check {
+  display: block;
+  animation-name: check-after;
+  animation-duration: 0.3s;
+  animation-iteration-count: 1;
+}
+
+.options {
+  width: 127px;
+  height: 131px;
+  display: none;
+  margin-top: 10px;
+  padding: 15px;
+  position: fixed;
+  border-radius: 10px;
+  background-color: #f2f2f2;
+  font-size: 16px;
+  line-height: 25px;
+}
+.options a {
+  text-decoration: none;
+  color: #000000;
+}
+.options span {
+  display: none;
+}
+.options a:focus span {
+  display: block;
+  position: absolute;
 }
 
 @media screen and (max-width: 1330px) {
