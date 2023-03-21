@@ -130,6 +130,7 @@
           </div>
         </div>
       </div>
+
       <div class="menu-mobile-pkm">
         <nav>
           <button>
@@ -268,7 +269,7 @@
             </div>
           </div>
           <div class="background-pkm">
-            <div class="image-card">
+            <div id="card-charizard" class="image-card">
               <img src="images/sharizard.png" alt="pokemon" />
             </div>
           </div>
@@ -339,7 +340,73 @@
             </div>
           </div>
         </div>
-        
+      </div>
+      <div class="next-pages centralization">
+        <button></button>
+        <button></button>
+        <button></button>
+      </div>
+
+      <div id="overlay" class="overlay"></div>
+
+      <div id="start-modal" class="exit-modal">
+        <div class="exit">
+          <button id="btn-exit-modal">
+            <hr />
+            <hr />
+          </button>
+        </div>
+        <div class="modal">
+          <div class="image-modal">
+            <img src="images/sharizard-maior.png" alt="pokemon" />
+            <div class="btns-modal">
+              <button><p>Grass</p></button> <button><p>Poison</p></button>
+            </div>
+          </div>
+          <div class="info-modal">
+            <div class="name-pkm">
+              <h1>Charizard</h1>
+              <span
+                ><p>Generation 1</p>
+                <div class="yellow-circle">578</div></span
+              >
+            </div>
+            <div class="abilities">
+              <p>Abilities</p>
+              <p>Overgrow - Chlorophyll</p>
+            </div>
+            <div class="points">
+              <div class="health">
+                <p>Healthy Points</p>
+                <p><strong>1 000 000</strong></p>
+                <hr />
+              </div>
+              <div class="exp">
+                <p>Experience</p>
+                <p><strong>1 000 000</strong></p>
+                <hr />
+              </div>
+            </div>
+            <div class="powers">
+              <div class="power">
+                <div class="circle-power"><p>49</p></div>
+                <p>Defence</p>
+              </div>
+              <div class="power">
+                <div class="circle-power"><p>165</p></div>
+                <p>Attack</p>
+              </div>
+              <div class="power">
+                <div class="circle-power"><p>130</p></div>
+                <p>Sp Attack</p>
+              </div>
+              <div class="power">
+                <div class="circle-power"><p>271</p></div>
+                <p>Sp Defence</p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </main>
     <footer>
@@ -349,6 +416,7 @@
       </div>
     </footer>
 
+    <!-- script das categorias -->
     <script type="text/javascript">
       const buttonOption = document.getElementById("btn-options");
       const allOptions = document.getElementsByClassName("options");
@@ -405,6 +473,28 @@
         });
       }
       ExperienceCategory();
+    </script>
+
+    <!-- script modal -->
+    <script type="text/javascript">
+      const btnStartModal = document.getElementById("card-charizard");
+      const overlayModal = document.getElementById("overlay");
+      const btnExitModal = document.getElementById("btn-exit-modal");
+      const btnModal = document.getElementById("start-modal");
+
+      btnStartModal.addEventListener("click", () => {
+        btnModal.style.display = "block";
+        overlayModal.style.display = "block";
+      });
+
+      btnExitModal.addEventListener("click", () => {
+        btnModal.style.display = "none";
+        overlayModal.style.display = "none";
+      });
+      overlayModal.addEventListener("click", () => {
+        btnModal.style.display = "none";
+        overlayModal.style.display = "none";
+      });
     </script>
   </body>
 </html>
