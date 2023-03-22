@@ -287,54 +287,13 @@
   display: flex;
   width: 350px;
   height: 135px;
+ 
   padding: 15px;
   margin: 15px;
   box-shadow: 4px 4px 16px rgba(1, 28, 64, 0.2);
   border-radius: 8px;
   overflow: hidden;
-  &:nth-child(2) {
-    .background-pkm {
-      background: linear-gradient(270deg, #b33327 0.15%, #d93e30 100%);
-    }
-  }
-  &:nth-child(3) {
-    .background-pkm {
-      background: linear-gradient(270deg, #f2cb07 0.15%, #f2b807 100%);
-    }
-  }
-  &:nth-child(4) {
-    .background-pkm {
-      background: linear-gradient(270deg, #64d368 0.15%, #64d368 70.88%);
-    }
-  }
-  &:nth-child(5) {
-    .background-pkm {
-      background: linear-gradient(270deg, #5bc7fa 0.15%, #35baff 100%);
-    }
-  }
-  &:nth-child(6) {
-    .image-card {
-      cursor: pointer;
-    }
-    .background-pkm {
-      background: linear-gradient(270deg, #b33327 0.15%, #d93e30 100%);
-    }
-  }
-  &:nth-child(7) {
-    .background-pkm {
-      background: linear-gradient(270deg, #5bc7fa 0.15%, #35baff 100%);
-    }
-  }
-  &:nth-child(8) {
-    .background-pkm {
-      background: linear-gradient(270deg, #f89eae 0.15%, #f4b5c1 100%);
-    }
-  }
-  &:nth-child(9) {
-    .background-pkm {
-      background: linear-gradient(270deg, #64d368 0.15%, #64d368 70.88%);
-    }
-  }
+
 }
 .circles {
   margin-top: 19px;
@@ -353,7 +312,7 @@
 .info {
   width: 80px;
   h2 {
-    font-size: 18px;
+    font-size: 15px;
   }
   span {
     display: flex;
@@ -388,7 +347,6 @@
   }
 }
 .background-pkm {
-  background: linear-gradient(270deg, #5bc7fa 0.15%, #35baff 100%);
   width: 100%;
   height: 135px;
   position: relative;
