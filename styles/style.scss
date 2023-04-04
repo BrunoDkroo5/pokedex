@@ -293,7 +293,7 @@
   box-shadow: 4px 4px 16px rgba(1, 28, 64, 0.2);
   border-radius: 8px;
   overflow: hidden;
-
+                          
 }
 .circles {
   margin-top: 19px;
@@ -406,6 +406,7 @@
   box-shadow: 4px 4px 8px rgba(1, 28, 64, 0.2);
   background: linear-gradient(270deg, #b33327 0.15%, #d93e30 100%);
   img {
+    width: 100%;
     position: relative;
     top: 50%;
     left: 50%;
@@ -414,12 +415,10 @@
 }
 
 .btns-modal {
-  position: relative;
-  top: 22px;
-  right: 15px;
-  display: flex;
-  gap: 15px;
-  justify-content: flex-end;
+  position: absolute;
+ top: 350px;
+ left: 125px;
+  
 
   button {
     z-index: 99;

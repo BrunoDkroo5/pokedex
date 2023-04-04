@@ -47,8 +47,14 @@
     <main>
       <div class="container-pokedex centralization">
         <div class="number-pkm">
-          <h1>800 <strong>Pokemons</strong> for you to choose your favorite</h1>
-          <input type="text" placeholder="Encuentra tu Pokémon..." />
+          <h1>151 <strong>Pokemons</strong> for you to choose your favorite</h1>
+          <form id="sendSearch">
+            <input
+              id="busca"
+              type="text"
+              placeholder="Encuentra tu Pokémon..."
+            />
+          </form>
         </div>
         <!-- div number-pkm -->
         <div class="selects">
@@ -153,90 +159,13 @@
 
       <div id="cards" class="cards centralization"></div>
       <!-- div cards -->
-      <div class="next-pages centralization">
-        <button></button>
-        <button></button>
-        <button></button>
-      </div>
+      <div id="spreads" class="next-pages centralization"></div>
       <!-- div next-pages -->
 
       <div id="overlay" class="overlay"></div>
       <!-- div overlay -->
 
-      <div id="start-modal" class="exit-modal">
-        <div class="exit">
-          <button id="btn-exit-modal">
-            <hr />
-            <hr />
-          </button>
-        </div>
-        <!-- div exit -->
-        <div class="modal">
-          <div class="image-modal">
-            <img src="images/sharizard-maior.png" alt="pokemon" />
-            <div class="btns-modal">
-              <button><p>Grass</p></button> <button><p>Poison</p></button>
-            </div>
-            <!-- div btns modal -->
-          </div>
-          <!-- div image-modal -->
-          <div class="info-modal">
-            <div class="name-pkm">
-              <h1>Charizard</h1>
-              <span
-                ><p>Generation 1</p>
-                <div class="yellow-circle">578</div></span
-              >
-            </div>
-            <!-- div name-pkm -->
-            <div class="abilities">
-              <p>Abilities</p>
-              <p>Overgrow - Chlorophyll</p>
-            </div>
-            <!-- div abilities -->
-            <div class="points">
-              <div class="health">
-                <p>Healthy Points</p>
-                <p><strong>1 000 000</strong></p>
-                <hr />
-              </div>
-              <!-- div health -->
-              <div class="exp">
-                <p>Experience</p>
-                <p><strong>1 000 000</strong></p>
-                <hr />
-              </div>
-              <!-- div exp -->
-            </div>
-            <!-- div points -->
-            <div class="powers">
-              <div class="power">
-                <div class="circle-power"><p>49</p></div>
-                <p>Defence</p>
-              </div>
-              <!-- div power -->
-              <div class="power">
-                <div class="circle-power"><p>165</p></div>
-                <p>Attack</p>
-              </div>
-              <!-- div power -->
-              <div class="power">
-                <div class="circle-power"><p>130</p></div>
-                <p>Sp Attack</p>
-              </div>
-              <!-- div power -->
-              <div class="power">
-                <div class="circle-power"><p>271</p></div>
-                <p>Sp Defence</p>
-              </div>
-              <!-- div power -->
-            </div>
-            <!-- div powers -->
-          </div>
-          <!-- div info modal -->
-        </div>
-        <!-- div modal -->
-      </div>
+      <div id="start-modal" class="exit-modal"></div>
       <!-- div exit-modal -->
     </main>
     <footer>
@@ -306,31 +235,23 @@
       ExperienceCategory();
     </script>
 
-    <!-- script modal -->
-    <script type="text/javascript">
-      const btnStartModal = document.getElementById("card-charizard");
-      const overlayModal = document.getElementById("overlay");
-      const btnExitModal = document.getElementById("btn-exit-modal");
-      const btnModal = document.getElementById("start-modal");
-
-      btnStartModal.addEventListener("click", () => {
-        btnModal.style.display = "block";
-        overlayModal.style.display = "block";
-      });
-
-      btnExitModal.addEventListener("click", () => {
-        btnModal.style.display = "none";
-        overlayModal.style.display = "none";
-      });
-      overlayModal.addEventListener("click", () => {
-        btnModal.style.display = "none";
-        overlayModal.style.display = "none";
-      });
-    </script>
     <!-- poke API -->
     <script type="text/javascript">
       const cardsPkm = document.getElementById("cards");
       const btnSkills = document.getElementsByClassName("containerSkills");
+      const inputPkm = document.getElementById("busca");
+      const formPkm = document.getElementById("sendSearch");
+      const startModal = document.getElementById("start-modal");
+      const btnEndModal = document.getElementById("btn-exit-modal");
+      const overlay = document.getElementById("overlay");
+      const spreads = document.getElementById("spreads");
+      const perPage = document.getElementsByClassName("perPage");
+      var spreadsObject = [];
+
+      const handleClick = () => {
+        startModal.style.display = "none";
+        overlay.style.display = "none";
+      };
 
       const colorsButtons = (_type_) => {
         let result;
@@ -394,11 +315,17 @@
             return response.json();
           })
           .then((detailsValue) => {
-     
+            let createDivCard = document.createElement("div");
 
-            cardsPkm.innerHTML += `
-            <div class="card">
-              <div class="info">
+            const validImages = () => {
+              return detailsValue.sprites.other.dream_world.front_default
+                ? detailsValue.sprites.other.dream_world.front_default
+                : detailsValue.sprites.other.home.front_default;
+            };
+
+            createDivCard.className = "card details";
+            createDivCard.innerHTML = `   
+            <div class="info">
                 <h2><strong>${detailsValue.name}</strong></h2>
                 <div class="circles">
                             <div class="circle"><p>${
@@ -423,17 +350,118 @@
                                 .replace(/,/g, "")}
                           </div>
                         </div>
-                        <div style="background-color:${colorsButtons(detailsValue.types[0].type.name)};"  class="background-pkm">
+                        <div style="background-color:${colorsButtons(
+                          detailsValue.types[0].type.name
+                        )};"  class="background-pkm">
                           <div class="image-card">
-                            <img src="${
-                              detailsValue.sprites.other.dream_world
-                                .front_default
-                            }" alt="pokemon" />
+                            <img src="${validImages()}" alt="pokemon" />
 
                           </div>
                         </div>
-                      </div>
-                    `;
+            
+            `;
+            createDivCard.onclick = () => {
+              startModal.style.display = "block";
+              overlay.style.display = "block";
+              startModal.innerHTML = `
+              <div class="exit">
+          <button id="btn-exit-modal" onclick="handleClick()">
+            <hr />
+            <hr />
+          </button>
+        </div>
+        <!-- div exit -->
+        <div class="modal">
+          <div class="image-modal">
+            <img src="${validImages()}" alt="pokemon" />
+            <div class="btns-modal">
+              ${detailsValue.types
+                .map((val) => {
+                  return `<button style="background-color:${colorsButtons(
+                    val.type.name
+                  )};">${val.type.name}</button>`;
+                })
+                .toString()
+                .replace(/,/g, "")}
+            </div>
+            <!-- div btns modal -->
+          </div>
+          <!-- div image-modal -->
+          <div class="info-modal">
+            <div class="name-pkm">
+              <h1>${detailsValue.name}</h1>
+              <span
+                ><p>Generation 1</p>
+                <div class="yellow-circle">${detailsValue.id}</div></span
+              >
+            </div>
+            <!-- div name-pkm -->
+            <div class="abilities">
+              <p>Abilities</p>
+              <p>${detailsValue.abilities[0].ability.name}</p>
+            </div>
+            <!-- div abilities -->
+            <div class="points">
+              <div class="health">
+                <p>Healthy Points</p>
+                <p><strong>${detailsValue.stats[0].base_stat}</strong></p>
+                <hr />
+              </div>
+              <!-- div health -->
+              <div class="exp">
+                <p>Experience</p>
+                <p><strong>${detailsValue.base_experience}</strong></p>
+                <hr />
+              </div>
+              <!-- div exp -->
+            </div>
+            <!-- div points -->
+            <div class="powers">
+              <div class="power">
+                <div class="circle-power">${
+                  detailsValue.stats[2].base_stat
+                }</div>
+                <p>Defence</p>
+              </div>
+              <!-- div power -->
+              <div class="power">
+                <div class="circle-power"><p>${
+                  detailsValue.stats[1].base_stat
+                }</p></div>
+                <p>Attack</p>
+              </div>
+              <!-- div power -->
+              <div class="power">
+                <div class="circle-power"><p>${
+                  detailsValue.stats[3].base_stat
+                }</p></div>
+                <p>Sp Attack</p>
+              </div>
+              <!-- div power -->
+              <div class="power">
+                <div class="circle-power"><p>${
+                  detailsValue.stats[4].base_stat
+                }</p></div>
+                <p>Sp Defence</p>
+              </div>
+              <!-- div power -->
+            </div>
+            <!-- div powers -->
+          </div>
+          <!-- div info modal -->
+        </div>
+        <!-- div modal -->
+              
+              
+              `;
+
+              overlay.addEventListener("click", () => {
+                startModal.style.display = "none";
+                overlay.style.display = "none";
+              });
+            };
+
+            cardsPkm.appendChild(createDivCard);
           });
       };
 
@@ -445,12 +473,78 @@
             return response.json();
           })
           .then((data) => {
-            data.results.map((pokemon) => {
-              return detailsPokemon(pokemon.url);
+            /**
+             * ---------------------------------------------------
+             * Função para filtrar os detalhes do pokemon
+             * @param {string} string - Pegando valores do input
+             * ---------------------------------------------------
+             */
+            const filtering = (string) => {
+              let result = data.results.filter((val) => {
+                return Object.values(val.name) // Pegando valores do objeto
+                  .join("") // Juntando as palavras do objeto val.name
+                  .toLowerCase() // Deixando todas as palavra em minuscula
+                  .replace(/\s/g, "") // Eliminando todos os espaços que encontrar dentro de uma string
+                  .includes(string.toLowerCase().replace(/\s/g, "")); // Validando todas as informações que foram pegadas do objeto e consultamos com o valor que veio do input
+              });
+              return result;
+            };
+
+            // The function filtering objects and show in the DOM
+            formPkm.addEventListener("submit", (e) => {
+              e.preventDefault();
+
+              filtering(inputPkm.value).map((pokemon) => {
+                cardsPkm.innerHTML = "";
+                detailsPokemon(pokemon.url);
+              });
+            });
+
+            if (inputPkm.value == "") {
+              cardsPkm.innerHTML = "";
+              pagination(data.results, 1, 20).map((pokemon) => {
+                detailsPokemon(pokemon.url);
+              });
+            }
+
+            Array.prototype.forEach.call(perPage, (buttonElement) => {
+              buttonElement.addEventListener("click", () => {
+                if (inputPkm.value == "") {
+                  cardsPkm.innerHTML = "";
+                  pagination(data.results, buttonElement.value, 20).map(
+                    (pokemon) => {
+                      detailsPokemon(pokemon.url);
+                    }
+                  );
+                }
+              });
             });
           });
       };
       pokeApi();
+
+      const pagination = (items, pageActual, limitItems) => {
+        let result = [];
+        let totalPage = Math.ceil(items.length / limitItems);
+        let countPage = pageActual * limitItems - limitItems;
+        let limitador = countPage + limitItems;
+
+        if (totalPage - 1 > perPage.length) {
+          for (let i = 1; i < totalPage; i++) {
+            spreads.innerHTML += `<button class="perPage" value=${i}></button>`;
+          }
+        }   
+
+        if (pageActual <= totalPage) {
+          for (let i = countPage; i < limitador; i++) {
+            if (items[i] != null) {
+              result.push(items[i]);
+            }
+            countPage++;
+          }
+          return result;
+        }
+      };
     </script>
   </body>
 </html>
